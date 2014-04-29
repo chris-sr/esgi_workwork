@@ -31,3 +31,18 @@ poc.exe: Utils.o Worker.o Task.o TaskCarDoor.o TaskCarEngine.o main.o
 clean:
 	del *.o
 	del *.exe
+	
+pocrelease:
+	$(CC) $(FLAGS) \
+	-I$(BOOST_PATH_HEADERS) \
+	-c $(SRC)/build.cpp \
+	-o build.o
+	
+	$(CC) \
+	-L$(BOOST_PATH_LIBS) \
+	build.o \
+	-s \
+	-o poc.exe \
+	-l$(BOOST_LIB_CHRONO) \
+	-l$(BOOST_LIB_THREAD) \
+	-l$(BOOST_LIB_SYSTEM)
