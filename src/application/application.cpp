@@ -50,12 +50,12 @@ Application::run(){
             //Measure the time (ms) elapsed since last frame
             double elapsed = timer.elapsed()*1000;
             timer.restart();
-            wwlog("Elapsed: " << elapsed << "\n");
+            //wwlog("Elapsed: " << elapsed << "\n");
 
             //If necessary, wait if we are rendering too fast
             double excedent = WW_FRAME_RATE - elapsed;
             if(excedent > 0){
-                wwlog("Will sleep for " << excedent << "\n");
+                //wwlog("Will sleep for " << excedent << "\n");
                 Sleep(excedent);
             }
 

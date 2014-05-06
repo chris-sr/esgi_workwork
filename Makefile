@@ -1,59 +1,59 @@
 
 # Variables to set
 
-PROJECT_NAME			=factory
-PATH_SRC				=src
-PATH_BUILD_DEB			=build.deb
-PATH_BUILD_REL			=build.rel
-EXT_SRC					=cpp
-EXT_O_DEB				=deb.o
-EXT_O_REL				=rel.o
-EXT_EXE_DEB				=deb.exe
-EXT_EXE_REL				=exe
-CMD_MKDIR				=mkdir
-CMD_ECHO				=echo
-CMD_RMDIR_FORCE			=rmdir /Q /S
-CMD_RM					=del /Q /F
-CMD_DEVNULL				=nul
-CMD_SEP					=---------------------------------
+PROJECT_NAME            =factory
+PATH_SRC                =src
+PATH_BUILD_DEB          =build.deb
+PATH_BUILD_REL          =build.rel
+EXT_SRC                 =cpp
+EXT_O_DEB               =deb.o
+EXT_O_REL               =rel.o
+EXT_EXE_DEB             =deb.exe
+EXT_EXE_REL             =exe
+CMD_MKDIR               =mkdir
+CMD_ECHO                =echo
+CMD_RMDIR_FORCE         =rmdir /Q /S
+CMD_RM                  =del /Q /F
+CMD_DEVNULL             =nul
+CMD_SEP                 =---------------------------------
 
-WIN_FIND_PWD			=echo %cd%
-WIN_FIND_DIRS			=dir /s /b /a:d /o:gn .\$(subst /,\,$(PATH_SRC))
+WIN_FIND_PWD            =echo %cd%
+WIN_FIND_DIRS           =dir /s /b /a:d /o:gn .\$(subst /,\,$(PATH_SRC))
 
-DEB_CC					=g++
-DEB_FLAGS				=-g -Wall -Wextra -fno-diagnostics-show-caret -ftrack-macro-expansion=0 -DWW_DEBUG
-DEB_LINKS				=-lboost_thread-mgw47-mt-sd-1_55 -lboost_system-mgw47-mt-sd-1_55 -lboost_chrono-mgw47-mt-sd-1_55 -lOgreMain_d -lOgreMain_d.dll -lOIS_d.dll
-REL_CC					=g++
-REL_FLAGS				=-w -Os
-REL_LINKS				=-lboost_thread-mgw47-mt-s-1_55 -lboost_system-mgw47-mt-s-1_55 -lboost_chrono-mgw47-mt-s-1_55 -lOgreMain -lOgreMain.dll -lOIS.dll
+DEB_CC                  =g++
+DEB_FLAGS               =-g -Wall -Wextra -fno-diagnostics-show-caret -ftrack-macro-expansion=0 -DWW_DEBUG
+DEB_LINKS               =-lboost_thread-mgw47-mt-sd-1_55 -lboost_system-mgw47-mt-sd-1_55 -lboost_chrono-mgw47-mt-sd-1_55 -lOgreMain_d -lOgreMain_d.dll -lOIS_d.dll
+REL_CC                  =g++
+REL_FLAGS               =-w -Os
+REL_LINKS               =-lboost_thread-mgw47-mt-s-1_55 -lboost_system-mgw47-mt-s-1_55 -lboost_chrono-mgw47-mt-s-1_55 -lOgreMain -lOgreMain.dll -lOIS.dll
 
-OGRE_PATH				=D:/Dev/ogre-1.8/sdk
-BOOST_PATH				=D:/Dev/boost-1.55
-SDL_PATH				=D:/Dev/SDL2
+OGRE_PATH               =D:/Dev/ogre-1.8/sdk
+BOOST_PATH              =D:/Dev/boost-1.55
+SDL_PATH                =D:/Dev/SDL2
 
 # Computed variables
 
-CURRENT_DIR				=$(subst \,/,$(shell $(WIN_FIND_PWD)))
-LIST_DIRS				=$(sort $(subst $(CURRENT_DIR)/,,$(subst \,/,$(shell $(WIN_FIND_DIRS)))))
-LIST_DIRS				+=$(PATH_SRC)
-LIST_DIRS_BUILD_DEB		=$(LIST_DIRS:$(PATH_SRC)%=$(PATH_BUILD_DEB)%)
-LIST_DIRS_BUILD_REL		=$(LIST_DIRS:$(PATH_SRC)%=$(PATH_BUILD_REL)%)
-LIST_FILES_SRC_TMP		=$(wildcard $(addsuffix /*.$(EXT_SRC),$(LIST_DIRS)))
-LIST_FILES_SRC			=$(LIST_FILES_SRC_TMP:$(PATH_SRC)/%=%)
-LIST_FILES_O_DEB		=$(LIST_FILES_SRC:%.$(EXT_SRC)=%.$(EXT_O_DEB))
-LIST_FILES_O_REL		=$(LIST_FILES_SRC:%.$(EXT_SRC)=%.$(EXT_O_REL))
-LIST_FILES_FULL_O_DEB	=$(LIST_FILES_O_DEB:%=$(PATH_BUILD_DEB)/%)
-LIST_FILES_FULL_O_REL	=$(LIST_FILES_O_REL:%=$(PATH_BUILD_REL)/%)
+CURRENT_DIR             =$(subst \,/,$(shell $(WIN_FIND_PWD)))
+LIST_DIRS               =$(sort $(subst $(CURRENT_DIR)/,,$(subst \,/,$(shell $(WIN_FIND_DIRS)))))
+LIST_DIRS               +=$(PATH_SRC)
+LIST_DIRS_BUILD_DEB     =$(LIST_DIRS:$(PATH_SRC)%=$(PATH_BUILD_DEB)%)
+LIST_DIRS_BUILD_REL     =$(LIST_DIRS:$(PATH_SRC)%=$(PATH_BUILD_REL)%)
+LIST_FILES_SRC_TMP      =$(wildcard $(addsuffix /*.$(EXT_SRC),$(LIST_DIRS)))
+LIST_FILES_SRC          =$(LIST_FILES_SRC_TMP:$(PATH_SRC)/%=%)
+LIST_FILES_O_DEB        =$(LIST_FILES_SRC:%.$(EXT_SRC)=%.$(EXT_O_DEB))
+LIST_FILES_O_REL        =$(LIST_FILES_SRC:%.$(EXT_SRC)=%.$(EXT_O_REL))
+LIST_FILES_FULL_O_DEB   =$(LIST_FILES_O_DEB:%=$(PATH_BUILD_DEB)/%)
+LIST_FILES_FULL_O_REL   =$(LIST_FILES_O_REL:%=$(PATH_BUILD_REL)/%)
 
-OIS_PATH_INCLUDE		=$(OGRE_PATH)/include/OIS
-OGRE_PATH_INCLUDE		=$(OGRE_PATH)/include/OGRE
-OGRE_PATH_LIB_DEBUG 	=$(OGRE_PATH)/lib/debug
-OGRE_PATH_LIB_RELEASE	=$(OGRE_PATH)/lib/release
-BOOST_PATH_INCLUDE		=$(BOOST_PATH)/include
-BOOST_PATH_LIB_DEBUG	=$(BOOST_PATH)/lib/
-BOOST_PATH_LIB_RELEASE	=$(BOOST_PATH)/lib/
-SDL_PATH_INCLUDE		=$(SDL_PATH)/include
-SDL_PATH_LIB			=$(SDL_PATH)/lib
+OIS_PATH_INCLUDE        =$(OGRE_PATH)/include/OIS
+OGRE_PATH_INCLUDE       =$(OGRE_PATH)/include/OGRE
+OGRE_PATH_LIB_DEBUG     =$(OGRE_PATH)/lib/debug
+OGRE_PATH_LIB_RELEASE   =$(OGRE_PATH)/lib/release
+BOOST_PATH_INCLUDE      =$(BOOST_PATH)/include
+BOOST_PATH_LIB_DEBUG    =$(BOOST_PATH)/lib/
+BOOST_PATH_LIB_RELEASE  =$(BOOST_PATH)/lib/
+SDL_PATH_INCLUDE        =$(SDL_PATH)/include
+SDL_PATH_LIB            =$(SDL_PATH)/lib
 
 # Targets
 
@@ -85,9 +85,9 @@ $(PATH_BUILD_DEB)/%.$(EXT_O_DEB): $(PATH_SRC)/%.$(EXT_SRC)
 	-c $^ \
 	-isystem $(OGRE_PATH_INCLUDE) \
 	-isystem $(OIS_PATH_INCLUDE) \
-    -isystem $(BOOST_PATH_INCLUDE) \
+	-isystem $(BOOST_PATH_INCLUDE) \
 	-isystem $(SDL_PATH_INCLUDE)
-	
+    
 release: $(LIST_DIRS_BUILD_REL) $(PATH_BUILD_REL)/$(PROJECT_NAME).$(EXT_EXE_REL)
 
 # release: create the build directories
@@ -116,9 +116,9 @@ $(PATH_BUILD_REL)/%.$(EXT_O_REL): $(PATH_SRC)/%.$(EXT_SRC)
 	-c $^ \
 	-isystem $(OGRE_PATH_INCLUDE) \
 	-isystem $(OIS_PATH_INCLUDE) \
-    -isystem $(BOOST_PATH_INCLUDE) \
+	-isystem $(BOOST_PATH_INCLUDE) \
 	-isystem $(SDL_PATH_INCLUDE)
-	
+    
 clear:
 	@ $(CMD_ECHO) $(CMD_SEP)
 	@ $(CMD_ECHO) Cleaning previous builds and binaries

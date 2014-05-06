@@ -2,7 +2,7 @@
 #define FACTORY_H
 
 #include <list>
-#include "boost/timer.hpp"
+#include "boost/thread.hpp"
 
 namespace ww{
 
@@ -16,8 +16,13 @@ public:
                         ~Factory();
     Factory&            operator=(const Factory&);
     void                update(double);
+    void                print();
+    Worker*             create_worker(const char*);
+    Chain*              create_chain(const char*);
 
 private:
+    boost::mutex*       _factory_mutex;
+
     std::list<Worker*>*
         _workers;
 

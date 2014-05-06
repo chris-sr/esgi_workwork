@@ -15,4 +15,6 @@
 
 #define wwlog_emergency(X) std::cout << " # " << X ;
 
+typedef unsigned int uint;
+
 #endif // TYPES_H
