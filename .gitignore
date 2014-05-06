@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 #################
 ## CodeBlocks
@@ -25,5 +26,11 @@ bin/
 *.dll
 *.txt
 old/
-build.deb/
-build.rel/
+
+||||||| merged common ancestors
+=======
+build*
+*.pro
+*.pro.user
+*.tmp
+>>>>>>> First commit for branch factory, adding main factory/ classes and small render implementation in application/
