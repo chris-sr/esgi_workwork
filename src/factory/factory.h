@@ -1,33 +1,45 @@
 #ifndef FACTORY_H
 #define FACTORY_H
 
-#include <list>
-#include "boost/thread.hpp"
+#include <vector>
 
 namespace ww{
 
+//Forward declarations
 class Worker;
 class Chain;
+class Resource;
+class Task;
 
 class Factory{
 public:
-                        Factory();
-                        Factory(const Factory&);
-                        ~Factory();
-    Factory&            operator=(const Factory&);
-    void                update(double);
-    void                print();
-    Worker*             create_worker(const char*);
-    Chain*              create_chain(const char*);
+                    ~Factory();
+    static Factory* get_instance();
+    static Factory& get_reference();
+    void            register_worker(Worker*);
+    void            register_chain(Chain*);
+    void            register_resource(Resource*);
+    void            register_task(Task*);
+    void            print();
 
 private:
-    boost::mutex*       _factory_mutex;
+    /* Functions */
+                    Factory();
 
-    std::list<Worker*>*
-        _workers;
+    /* Members */
+    static Factory* _instance;
 
-    std::list<Chain*>*
-        _chains;
+    std::vector<Worker*>*
+            _workers;
+
+    std::vector<Chain*>*
+            _chains;
+
+    std::vector<Resource*>*
+            _resources;
+
+    std::vector<Task*>*
+            _tasks;
 };
 
 }

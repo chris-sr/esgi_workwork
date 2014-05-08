@@ -1,24 +1,30 @@
 #ifndef WORKER_H
 #define WORKER_H
 
-#include <iostream>
-
 namespace ww{
 
-class Worker{
+class Chain;
+class Task;
 
+/**
+ * A worker is a single unit of the factory
+ * which may have a task, and may be affected
+ * to a chain.
+ * A worker may do (or repeat) a single work at
+ * any given time.
+ */
+class Worker{
 public:
-                        Worker();
-                        Worker(const char*);
-                        Worker(const Worker&);
-                        ~Worker();
-    Worker&             operator=(const Worker&);
-    std::string&         get_name() const;
+                    Worker();
+                    ~Worker();
 
 private:
-    static std::string* _generate_name();
+    /* Functions */
+    std::string*    _generate_name;
 
-    std::string*        _name;
+    /* Members */
+    Chain*          _affected_chain;
+    Task*           _affected_task;
 };
 
 }
