@@ -10,7 +10,7 @@ class Resource;
 class Task{
 public:
                     Task();
-                    ~Task();
+    virtual         ~Task();
 
 private:
     std::vector<Resource*>*

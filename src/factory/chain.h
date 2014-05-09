@@ -11,8 +11,10 @@ class Chain{
 public:
                     Chain();
                     ~Chain();
+    void            affect_worker(Worker*);
+    void            reject_worker(Worker*);
 
-private:
+/*private:*/
     std::vector<Worker*>*
             _affected_workers;
 };

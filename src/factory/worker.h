@@ -1,6 +1,8 @@
 #ifndef WORKER_H
 #define WORKER_H
 
+#include <iostream>
+
 namespace ww{
 
 class Chain;
@@ -14,11 +16,12 @@ class Task;
  * any given time.
  */
 class Worker{
+friend class Chain;
 public:
                     Worker();
                     ~Worker();
 
-private:
+/*private:*/
     /* Functions */
     std::string*    _generate_name;
 

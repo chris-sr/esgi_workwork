@@ -18,8 +18,10 @@ public:
     static Factory& get_reference();
     void            register_worker(Worker*);
     void            register_chain(Chain*);
-    void            register_resource(Resource*);
-    void            register_task(Task*);
+    /*void            register_resource(Resource*);*/
+    void            unregister_worker(Worker*);
+    void            unregister_chain(Chain*);
+    /*void            unregister_resource(Resource*);*/
     void            print();
 
 private:
@@ -35,11 +37,8 @@ private:
     std::vector<Chain*>*
             _chains;
 
-    std::vector<Resource*>*
-            _resources;
-
-    std::vector<Task*>*
-            _tasks;
+    /*std::vector<Resource*>*
+            _resources;*/
 };
 
 }

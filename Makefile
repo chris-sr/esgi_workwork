@@ -68,7 +68,7 @@ $(PATH_BUILD_DEB)/$(PROJECT_NAME).$(EXT_EXE_DEB): $(LIST_FILES_FULL_O_DEB)
 	@$(CMD_ECHO) $(CMD_SEP)
 	@$(CMD_ECHO) Linking executable $@
 	@$(DEB_CC) \
-	-o $@ \
+    -o $@ \
 	$(LIST_FILES_FULL_O_DEB) \
 	$(DEB_LINKS) \
 	-L$(OGRE_PATH_LIB_DEBUG) \
