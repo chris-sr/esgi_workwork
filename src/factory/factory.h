@@ -13,20 +13,21 @@ class Task;
 
 class Factory{
 public:
-                    ~Factory();
     static Factory* get_instance();
     static Factory& get_reference();
+    static void     destroy();
     void            register_worker(Worker*);
     void            register_chain(Chain*);
-    /*void            register_resource(Resource*);*/
+    void            register_resource(Resource*);
     void            unregister_worker(Worker*);
     void            unregister_chain(Chain*);
-    /*void            unregister_resource(Resource*);*/
+    void            unregister_resource(Resource*);
     void            print();
 
 private:
     /* Functions */
                     Factory();
+                    ~Factory();
 
     /* Members */
     static Factory* _instance;
@@ -37,8 +38,8 @@ private:
     std::vector<Chain*>*
             _chains;
 
-    /*std::vector<Resource*>*
-            _resources;*/
+    std::vector<Resource*>*
+            _resources;
 };
 
 }

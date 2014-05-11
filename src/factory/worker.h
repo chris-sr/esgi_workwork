@@ -2,6 +2,7 @@
 #define WORKER_H
 
 #include <iostream>
+#include "types.h"
 
 namespace ww{
 
@@ -17,15 +18,14 @@ class Task;
  */
 class Worker{
 friend class Chain;
+friend class Factory;
 public:
                     Worker();
                     ~Worker();
+    void            affect_task(Task*);
 
-/*private:*/
-    /* Functions */
-    std::string*    _generate_name;
-
-    /* Members */
+private:
+    Task*           _task;
     Chain*          _affected_chain;
     Task*           _affected_task;
 };
