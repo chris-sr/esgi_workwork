@@ -1,0 +1,24 @@
+
+#################
+## CodeBlocks
+#################
+
+#Specific files
+
+*.cbTemp
+*.cbp
+*.depend
+*.layout
+
+#Specific folders
+
+obj/
+bin/
+
+#################
+## Others
+#################
+
+*.bat
+*.dll
+*.txt
