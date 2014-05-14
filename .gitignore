@@ -2,18 +2,20 @@
 #################
 ## CodeBlocks
 #################
-
-#Specific files
-
 *.cbTemp
 *.cbp
 *.depend
 *.layout
-
-#Specific folders
-
 obj/
 bin/
+
+#################
+## QTCreator
+#################
+*.pro
+*.pro.user
+*.tmp
+*.autosave
 
 #################
 ## Others
@@ -22,3 +24,6 @@ bin/
 *.bat
 *.dll
 *.txt
+old/
+build.deb/
+build.rel/
