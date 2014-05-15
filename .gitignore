@@ -20,9 +20,10 @@ bin/
 #################
 ## Others
 #################
+
 *.bat
 *.dll
 *.txt
 old/
-build*
-
+build.deb/
+build.rel/
