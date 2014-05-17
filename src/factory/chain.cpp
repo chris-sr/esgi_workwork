@@ -5,8 +5,8 @@
 #include "worker.h"
 
 ww::Chain::Chain(){
+    _factory = NULL;
     _affected_workers = new std::vector<Worker*>();
-    Factory::get_reference().register_chain(this);
 }
 
 ww::Chain::~Chain(){ 
@@ -19,7 +19,10 @@ ww::Chain::~Chain(){
     delete _affected_workers;
 
     //Notify the factory we are destroying a chain
-    Factory::get_reference().unregister_chain(this);
+    if(NULL != _factory){
+        _factory->unregister_chain(this);
+    }
+    //Factory::get_reference().unregister_chain(this);
 }
 
 void

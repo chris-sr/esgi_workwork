@@ -1,3 +1,5 @@
+/* Todo: add coplient support for factory class */
+
 #ifndef FACTORY_H
 #define FACTORY_H
 
@@ -13,9 +15,14 @@ class Task;
 
 class Factory{
 public:
-    static Factory* get_instance();
+                    Factory();
+                    ~Factory();
+    /*static Factory* get_instance();
     static Factory& get_reference();
-    static void     destroy();
+    static void     destroy();*/
+    Worker*         create_worker();
+    Chain*          create_chain();
+    Resource*       create_resource();
     void            register_worker(Worker*);
     void            register_chain(Chain*);
     void            register_resource(Resource*);
@@ -26,11 +33,11 @@ public:
 
 private:
     /* Functions */
-                    Factory();
-                    ~Factory();
+                    /*Factory();
+                    ~Factory();*/
 
     /* Members */
-    static Factory* _instance;
+    /*static Factory* _instance;*/
 
     std::vector<Worker*>*
             _workers;

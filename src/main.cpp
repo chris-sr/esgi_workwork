@@ -8,6 +8,13 @@
 #include <vector>
 
 int main(){
+    ww::Factory f;
+    f.create_worker();
+    f.create_worker();
+    f.create_chain();
+    delete f.create_chain();
+    f.create_resource();
+    f.create_resource();
 
     return 0;
 }

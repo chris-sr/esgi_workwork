@@ -8,6 +8,7 @@ namespace ww{
 
 class Chain;
 class Task;
+class Factory;
 
 /**
  * A worker is a single unit of the factory
@@ -19,12 +20,14 @@ class Task;
 class Worker{
 friend class Chain;
 friend class Factory;
+
 public:
                     Worker();
                     ~Worker();
     void            affect_task(Task*);
 
 private:
+    Factory*        _factory;
     Task*           _task;
     Chain*          _affected_chain;
     Task*           _affected_task;

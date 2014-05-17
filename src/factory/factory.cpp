@@ -1,10 +1,9 @@
 #include "factory.h"
 
 #include "types.h"
-
-ww::Factory*
-ww::Factory::_instance = NULL;
-
+#include "worker.h"
+#include "chain.h"
+#include "resource.h"
 
 ww::Factory::Factory(){
     _workers = new std::vector<Worker*>();
@@ -17,9 +16,8 @@ ww::Factory::~Factory(){
 #ifdef WW_DEBUG
     /* Print all the registered elements, since they
      * may be a possible memory leak */
-    wwlog("Destroying the factory. The following dump "
-          << "shows possible memory leaks. Each "
-          << "element will be unregistered.\n");
+    wwlog("Destroying the factory. The following dump shows possible memory leaks\n");
+    wwlog("Each element will be unregistered\n");
     this->print();
 #endif
 
@@ -30,7 +28,34 @@ ww::Factory::~Factory(){
 }
 
 
-void
+ww::Worker*
+ww::Factory::create_worker(){
+    Worker* w = new Worker();
+    this->register_worker(w);
+    w->_factory = this;
+    return w;
+}
+
+
+ww::Chain*
+ww::Factory::create_chain(){
+    Chain* c = new Chain();
+    this->register_chain(c);
+    c->_factory = this;
+    return c;
+}
+
+
+ww::Resource*
+ww::Factory::create_resource(){
+    Resource* r = new Resource();
+    this->register_resource(r);
+    r->_factory = this;
+    return r;
+}
+
+
+/*void
 ww::Factory::destroy(){
     if(NULL == _instance){
         wwlog("warning: attempting to destroy a non "
@@ -39,23 +64,23 @@ ww::Factory::destroy(){
     }
     delete _instance;
     _instance = NULL;
-}
+}*/
 
 
-ww::Factory*
+/*ww::Factory*
 ww::Factory::get_instance(){
     if(NULL == _instance){
         _instance = new Factory();
     }
 
     return _instance;
-}
+}*/
 
 
-ww::Factory&
+/*ww::Factory&
 ww::Factory::get_reference(){
     return *(ww::Factory::get_instance());
-}
+}*/
 
 
 void
@@ -184,19 +209,19 @@ ww::Factory::unregister_resource(Resource* res){
 void
 ww::Factory::print(){
     uint i;
-    wwlog_emergency("------Factory dump-----\n");
+    wwlog("------Factory dump-----\n");
 
     for(i=0; i<_workers->size(); i++){
-        wwlog_emergency("worker: " << _workers->at(i) << "\n");
+        wwlog("worker: " << _workers->at(i) << "\n");
     }
     for(i=0; i<_chains->size(); i++){
-        wwlog_emergency("chain: " << _chains->at(i) << "\n");
+        wwlog("chain: " << _chains->at(i) << "\n");
     }
     for(i=0; i<_resources->size(); i++){
-        wwlog_emergency("resource: " << _resources->at(i) << "\n");
+        wwlog("resource: " << _resources->at(i) << "\n");
     }
 
-    wwlog_emergency("-----------------------\n");
+    wwlog("-----------------------\n");
 }
 
 

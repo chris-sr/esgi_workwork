@@ -3,10 +3,18 @@
 
 namespace ww{
 
+//Forward declarations
+class Factory;
+
 class Resource{
+friend class Factory;
+
 public:
                     Resource();
                     ~Resource();
+
+private:
+    Factory*        _factory;
 };
 
 }

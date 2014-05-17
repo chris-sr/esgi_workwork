@@ -6,12 +6,13 @@
 
 ww::Worker::Worker(){
     //Initialize a standard worker
+    _factory = NULL;
     _affected_chain = NULL;
     _affected_task = NULL;
     _task = NULL;
 
     //Notify the factory we created a worker
-    Factory::get_reference().register_worker(this);
+    //Factory::get_reference().register_worker(this);
 }
 
 ww::Worker::~Worker(){
@@ -23,7 +24,10 @@ ww::Worker::~Worker(){
     }
 
     //Unregister this worker from factory
-    Factory::get_reference().unregister_worker(this);
+    if(NULL != _factory){
+        _factory->unregister_worker(this);
+    }
+    //Factory::get_reference().unregister_worker(this);
 }
 
 void
