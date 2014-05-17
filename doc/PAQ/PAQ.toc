@@ -1,0 +1,18 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Les besoins et limite \IeC {\guillemotleft } qualit\IeC {\'e} \IeC {\guillemotright } du projet}{2}
+\contentsline {chapter}{\numberline {2}Contexte d\IeC {\textquoteright }utilisation du PAQ}{3}
+\contentsline {chapter}{\numberline {3}Domaine d'application}{4}
+\contentsline {section}{\numberline {3.1}Phases de l\IeC {\textquoteright }avant-projet}{4}
+\contentsline {section}{\numberline {3.2}Phases du d\IeC {\'e}veloppement}{4}
+\contentsline {section}{\numberline {3.3}Phases du pilote}{4}
+\contentsline {section}{\numberline {3.4}Phases du d\IeC {\'e}ploiement}{4}
+\contentsline {chapter}{\numberline {4}Responsabilit\IeC {\'e} de l\IeC {\textquoteright }assurance qualit\IeC {\'e}}{5}
+\contentsline {section}{\numberline {4.1}Responsable qualit\IeC {\'e}}{5}
+\contentsline {section}{\numberline {4.2}Proc\IeC {\'e}dures palliatives}{5}
+\contentsline {section}{\numberline {4.3}Gestion des \IeC {\'e}volutions du PAQ}{5}
+\contentsline {chapter}{\numberline {5}Suivi de l\IeC {\textquoteright }ex\IeC {\'e}cution du plan}{6}
+\contentsline {section}{\numberline {5.1}Actions de contr\IeC {\^o}les}{6}
+\contentsline {section}{\numberline {5.2}Les r\IeC {\'e}unions \IeC {\guillemotleft } Qualit\IeC {\'e} \IeC {\guillemotright } et les participants}{6}
+\contentsline {section}{\numberline {5.3}Les proc\IeC {\'e}dures de validation des CR}{6}
+\contentsline {chapter}{\numberline {6}R\IeC {\'e}f\IeC {\'e}rences documentaires}{7}
+\contentsline {chapter}{\numberline {7}Lexique}{8}
